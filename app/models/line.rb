@@ -1,4 +1,3 @@
 class Line < ApplicationRecord
-  has_many :stations
-  belongs_to :station
+has_many :stations
 end
