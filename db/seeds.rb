@@ -13,7 +13,7 @@ tokyo_stations.each do |station|
     tokyo_lines << line if !tokyo_lines.include?(line)
   end
 end
-
+# Creation of lines
 puts "Deleting all the existing lines..."
 Line.destroy_all
 
@@ -25,5 +25,10 @@ tokyo_lines.each do |line|
   )
   new_line.save
   puts "#{new_line.name} line created!"
+end
+
+# Creation of stations
+
+tokyo_stations.each do |station|
 end
 
