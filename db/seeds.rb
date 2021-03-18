@@ -17,11 +17,13 @@ end
 puts "Deleting all the existing lines..."
 Line.destroy_all
 
-tokyo_lines.map { |line| line.gsub!("."," ") }
 tokyo_lines.each do |line|
   puts "Creating #{line} line..."
-  new_line = Line.new(name: "#{line} line")
+  new_line = Line.new(
+    name: "#{line.gsub("."," ")} line",
+    line_code: "#{line}"
+  )
   new_line.save
-  puts "#{line} line created!"
+  puts "#{new_line.name} line created!"
 end
 
