@@ -51,8 +51,6 @@ tokyo_stations.each do |station|
     lon: station["stations"][0]["lon"],
     )
   new_station.save
-  new_station.ward = new_station.address.split(",")[-4]
-  new_station.save
   puts "#{new_station.name_kanji} created!"
 end
 
