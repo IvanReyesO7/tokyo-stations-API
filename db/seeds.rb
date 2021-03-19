@@ -3,9 +3,18 @@ require 'open-uri'
 require 'miyabi'
 require "romaji"
 
+puts "Deleting all the existing platforms..."
+Platform.destroy_all
+
+
+puts "Deleting all the existing lines..."
+Line.destroy_all
+
+puts "Deleting all the existing stations..."
+Station.destroy_all
+
 url = 'https://raw.githubusercontent.com/piuccio/open-data-jp-railway-stations/master/stations.json'
 user_serialized = open(url).read
-# in this json we have a list of several stations all over Japan, we only need Tokyo for this project
 tokyo_stations = JSON.parse(user_serialized).select{ |station| station["prefecture"] == "13" }
 
 # Creation of lines
@@ -17,8 +26,7 @@ tokyo_stations.each do |station|
   end
 end
 
-puts "Deleting all the existing lines..."
-Line.destroy_all
+
 
 tokyo_lines.each do |line|
   puts "Creating #{line} line..."
@@ -32,18 +40,18 @@ end
 
 # Creation of stations
 
-puts "Deleting all the existing stations..."
 puts "Creating #{tokyo_stations.length} stations"
-Station.destroy_all
 tokyo_stations.each do |station|
   new_station = Station.new(
-    name: (station["name_kanji"].is_kana? ? Romaji.kana2romaji station["name_kanji"] : Romaji.kana2romaji station["name_kanji"].to_kanhira),
+    name: station["name_kanji"].is_kana? ? (Romaji.kana2romaji station["name_kanji"]) : (Romaji.kana2romaji station["name_kanji"].to_kanhira),
     name_kana: (station["name_kanji"].is_kana? ? station["name_kanji"] : station["name_kanji"].to_kanhira),
     name_kanji: station["name_kanji"],
     lines_code: station["line_codes"],
     lat: station["stations"][0]["lat"],
-    lon: station["stations"][0]["lon"]
+    lon: station["stations"][0]["lon"],
     )
+  new_station.save
+  new_station.ward = new_station.address.split(",")[-4]
   new_station.save
   puts "#{new_station.name_kanji} created!"
 end
