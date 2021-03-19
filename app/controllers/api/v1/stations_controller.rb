@@ -1,9 +1,10 @@
 class Api::V1::StationsController < Api::V1::BaseController
   def index
     if params[:query].present?
-    @stations = Station.where("name ILIKE ?", "%#{params[:query]}%")
+      sql_query = "name ILIKE :query OR name_kanji ILIKE :query OR name_kana ILIKE :query"
+      @stations = Station.where(sql_query, query: "%#{params[:query]}%")
     else
-    @stations = Station.all.order(created_at: :asc)
+      @stations = Station.all.order(created_at: :asc)
     end
   end
 end
