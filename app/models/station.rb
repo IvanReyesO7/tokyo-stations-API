@@ -1,3 +1,3 @@
 class Station < ApplicationRecord
-  has_many :lines, through: :platforms
+  has_many :platforms
 end

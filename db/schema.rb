@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_03_19_024458) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name_kana"
-    t.text "lines", default: [], array: true
+    t.text "lines_code", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
