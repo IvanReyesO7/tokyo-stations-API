@@ -54,7 +54,7 @@ tokyo_stations.each do |station|
   puts "#{new_station.name_kanji} created!"
 end
 
-# Creation of joint table
+# # Creation of joint table
 
 puts "Creating platforms (joint table)..."
 st_all = Station.all
