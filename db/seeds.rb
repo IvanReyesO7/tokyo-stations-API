@@ -1,6 +1,7 @@
 require 'json'
 require 'open-uri'
 require 'miyabi'
+require "romaji"
 
 url = 'https://raw.githubusercontent.com/piuccio/open-data-jp-railway-stations/master/stations.json'
 user_serialized = open(url).read
@@ -36,7 +37,7 @@ puts "Creating #{tokyo_stations.length} stations"
 Station.destroy_all
 tokyo_stations.each do |station|
   new_station = Station.new(
-    name: (station["name_kanji"].is_kana? ? station["name_kanji"].to_roman : station["name_kanji"].to_kanhira.to_roman),
+    name: (station["name_kanji"].is_kana? ? Romaji.kana2romaji station["name_kanji"] : Romaji.kana2romaji station["name_kanji"].to_kanhira),
     name_kana: (station["name_kanji"].is_kana? ? station["name_kanji"] : station["name_kanji"].to_kanhira),
     name_kanji: station["name_kanji"],
     lines_code: station["line_codes"],

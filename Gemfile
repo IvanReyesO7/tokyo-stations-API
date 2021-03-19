@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # manually added
 gem 'miyabi'
+gem 'romaji'
+gem 'geocoder'
+
