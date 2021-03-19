@@ -6,7 +6,6 @@ url = 'https://raw.githubusercontent.com/piuccio/open-data-jp-railway-stations/m
 user_serialized = open(url).read
 # in this json we have a list of several stations all over Japan, we only need Tokyo for this project
 tokyo_stations = JSON.parse(user_serialized).select{ |station| station["prefecture"] == "13" }
-
 # # Creation of lines
 
 # tokyo_lines = []
@@ -32,12 +31,16 @@ tokyo_stations = JSON.parse(user_serialized).select{ |station| station["prefectu
 # Creation of stations
 
 puts "Deleting all the existing stations..."
+puts "Creating #{tokyo_stations.length} stations"
 Station.destroy_all
 tokyo_stations.each do |station|
   new_station = Station.new(
-    name: (station["name_kanji"].is_kana? ? station["name_kanji"] : station["name_kanji"].to_kanhira)
+    name: (station["name_kanji"].is_kana? ? station["name_kanji"].to_roman : station["name_kanji"].to_kanhira.to_roman),
+    name_kana: (station["name_kanji"].is_kana? ? station["name_kanji"] : station["name_kanji"].to_kanhira),
+    name_kanji: station["name_kanji"]
     )
   new_station.save
+  puts "#{new_station.name} created!"
 end
 
 
