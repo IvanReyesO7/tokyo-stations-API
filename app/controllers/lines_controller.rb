@@ -1,5 +1,5 @@
 class LinesController < ApplicationController
   def display
-    @lines = Line.all.order(created_at: :asc)
+    @lines = Line.all.order(id: :asc)
   end
 end
