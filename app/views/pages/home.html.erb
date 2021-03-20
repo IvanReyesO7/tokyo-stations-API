@@ -1,5 +1,28 @@
 <div class="container">
-  <% @stations.each do |station| %>
-    <p><%= station.name_kanji %></p>
-  <%end%>
+  <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Name_kanji</th>
+      <th scope="col">Name_kana</th>
+      <th scope="col">Coordinates</th>
+      <th scope="col">Lines</th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stations.each do |station| %>
+    <tr>
+      <td><%=station.id%></td>
+      <td><%=station.name%></td>
+      <td><%=station.name_kanji%></td>
+      <td><%=station.name_kana%></td>
+      <td><%="#{station.lat}, #{station.lon}"%></td>
+      <td><%=station.lines_code%></td>
+      <td><%=station.address%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
 </div>
