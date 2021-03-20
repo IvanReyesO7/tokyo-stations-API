@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <%line.stations.each do |station|%>
+    <%line.stations.sort_by{ |station| station.id }.each do |station|%>
     <tr>
       <td><%=station.id%></td>
       <td><%=station.name%></td>
