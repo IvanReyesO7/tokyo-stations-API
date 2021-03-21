@@ -1,9 +1,9 @@
 # Tokyo train stations API
 
-The data base only lists train stations within the borders of Tokyo prefecture (23 special wards and cities).
+The database only lists train stations within the borders of Tokyo prefecture (23 special wards and cities).
 The list was populated with open information from [Association for Open Data of Public Transportation](http://www.odpt.org/) using the query https://api-tokyochallenge.odpt.org/api/v4/odpt:Station
 For translating the kanji names into kana and romaji the [miyabi](https://github.com/isy/miyabi) and [romaji](https://github.com/makimoto/romaji) gems were implemented. 
-Since the translation of proper names from kanji to kana or romaji are sometimes unaquarate some manual effort was done.
+Since the translation of proper names from kanji to kana or romaji are sometimes inaccurate some manual effort was done.
 Some of the lines have an icon included taken from [Media Wiki](https://www.mediawiki.org/wiki/API:Main_page)
 ## base URL
 `https://tokyo-stations-api.herokuapp.com//api/v1/`
@@ -217,4 +217,4 @@ eg. [`/api/v1/stations?query=:shibuya`](https://tokyo-stations-api.herokuapp.com
 ```
 ### Notes
 
-/!\ Some translations might not be aqcuarate.
+/!\ Some translations might not be accurate.
