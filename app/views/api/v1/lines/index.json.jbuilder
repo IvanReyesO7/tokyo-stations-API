@@ -4,6 +4,8 @@ json.array! @lines do |line|
     :name_kanji,
     :name_kana,
     :line_code,
-    :icon,
-    :stations
+    :icon
+    json.stations line.stations do |station|
+      json.extract! station, :name_kanji, :name_kana, :name_romaji
+    end
 end
