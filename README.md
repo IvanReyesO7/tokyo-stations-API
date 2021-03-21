@@ -217,4 +217,4 @@ eg. [`/api/v1/stations?query=:shibuya`](https://tokyo-stations-api.herokuapp.com
 ```
 ### Notes
 
-/!\ Some translations might not be accurate.
+⚠️ Some translations might not be accurate.
