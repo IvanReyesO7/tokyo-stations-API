@@ -13,33 +13,24 @@ Line.destroy_all
 # puts "Deleting all the existing stations..."
 # Station.destroy_all
 
-url = 'https://raw.githubusercontent.com/piuccio/open-data-jp-railway-stations/master/stations.json'
-user_serialized = open(url).read
-tokyo_stations = JSON.parse(user_serialized).select{ |station| station["prefecture"] == "13" }
+# url = 'https://raw.githubusercontent.com/piuccio/open-data-jp-railway-stations/master/stations.json'
+# user_serialized = open(url).read
+# tokyo_stations = JSON.parse(user_serialized).select{ |station| station["prefecture"] == "13" }
 
 url = 'https://raw.githubusercontent.com/piuccio/open-data-jp-railway-lines/master/lines.json'
 user_serialized = open(url).read
-tokyo_lines = JSON.parse(user_serialized).select{ |station| station["prefecture"] == "13" }
+tokyo_lines = JSON.parse(user_serialized).select{ |station| station["prefectures"].include?("13") }
 # Creation of lines
 
-tokyo_lines = []
-tokyo_stations.each do |station|
-  station["line_codes"].each do |line|
-    tokyo_lines << line if !tokyo_lines.include?(line)
-  end
-end
-
-
-
 tokyo_lines.each do |line|
-  puts "Creating #{line} line..."
   new_line = Line.new(
-    name: "#{line.gsub("."," ")} line",
-    line_code: "#{line}"
-  )
-  new_line.save
-  puts "#{new_line.name} created with id: #{new_line.id}!"
+    name_romaji: line["name_romaji"],
+    name_kana: line["name_kana"],
+    name_kanji: line["name_kanji"],
+    line_code: line["name_code"],
+    )
 end
+
 
 # Creation of stations
 

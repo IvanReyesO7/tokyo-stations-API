@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_060358) do
+ActiveRecord::Schema.define(version: 2021_03_21_090343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2021_03_21_060358) do
     t.string "icon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
+    t.string "name_romaji"
     t.string "line_code"
+    t.string "name_kana"
+    t.string "name_kanji"
   end
 
   create_table "platforms", force: :cascade do |t|
