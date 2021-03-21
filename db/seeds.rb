@@ -71,6 +71,5 @@ st_all.each do |station|
   end
 end
 
-puts icons
 
 
