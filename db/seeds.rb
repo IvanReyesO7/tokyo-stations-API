@@ -43,7 +43,7 @@ end
 puts "Creating #{tokyo_stations.length} stations"
 tokyo_stations.each do |station|
   new_station = Station.new(
-    name: station["name_kanji"].is_kana? ? (Romaji.kana2romaji station["name_kanji"]).capitalize : (Romaji.kana2romaji station["name_kanji"].to_kanhira).capitalize,
+    name_romaji: station["name_kanji"].is_kana? ? (Romaji.kana2romaji station["name_kanji"]).capitalize : (Romaji.kana2romaji station["name_kanji"].to_kanhira).capitalize,
     name_kana: (station["name_kanji"].is_kana? ? station["name_kanji"] : station["name_kanji"].to_kanhira),
     name_kanji: station["name_kanji"],
     lines_code: station["line_codes"],
