@@ -10,13 +10,16 @@ Platform.destroy_all
 puts "Deleting all the existing lines..."
 Line.destroy_all
 
-puts "Deleting all the existing stations..."
-Station.destroy_all
+# puts "Deleting all the existing stations..."
+# Station.destroy_all
 
 url = 'https://raw.githubusercontent.com/piuccio/open-data-jp-railway-stations/master/stations.json'
 user_serialized = open(url).read
 tokyo_stations = JSON.parse(user_serialized).select{ |station| station["prefecture"] == "13" }
 
+url = 'https://raw.githubusercontent.com/piuccio/open-data-jp-railway-lines/master/lines.json'
+user_serialized = open(url).read
+tokyo_lines = JSON.parse(user_serialized).select{ |station| station["prefecture"] == "13" }
 # Creation of lines
 
 tokyo_lines = []
