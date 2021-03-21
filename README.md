@@ -42,7 +42,7 @@ eg. [`/api/v1/stations?query=:shibuya`](https://tokyo-stations-api.herokuapp.com
 ```
 You can also search a station by its name in japanese (kanji or kana).
 
-##Lines
+## Lines
 #### Get the full list of lines.
 ```
 /api/v1/lines
