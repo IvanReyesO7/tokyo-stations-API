@@ -18,7 +18,7 @@ Endpoint to retrieve information from all the stations listed.
 ```
 /api/v1/stations?query=:station
 ```
-eg. [`/api/v1/stations?query=:shibuya`](https://tokyo-stations-api.herokuapp.com/api/v1/stations?query=shibuya)
+eg. [`/api/v1/stations?query=shibuya`](https://tokyo-stations-api.herokuapp.com/api/v1/stations?query=shibuya)
 ```json
 [
   {
