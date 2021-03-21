@@ -8,8 +8,8 @@ Some of the lines have an icon included taken from [Media Wiki](https://www.medi
 ## base URL
 `http://localhost:3000/api/v1/`
 ## Usage
-##Stations
-####Get the full list of stations
+## Stations
+#### Get the full list of stations
 Endpoint to retrieve information from all the stations listed.
 ```
 /api/v1/stations
