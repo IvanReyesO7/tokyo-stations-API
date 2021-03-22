@@ -51,7 +51,7 @@ You can also search a station by its name in japanese (kanji or kana).
 ```
 /api/v1/stations?query=:line
 ```
-eg. [`/api/v1/stations?query=:shibuya`](https://tokyo-stations-api.herokuapp.com/api/v1/stations?query=yamanote)
+eg. [`/api/v1/stations?query=:yamanote`](https://tokyo-stations-api.herokuapp.com/api/v1/lines?query=yamanote)
 ```json
 [
   {
