@@ -6,7 +6,7 @@ For translating the kanji names into kana and romaji the [miyabi](https://github
 Since the translation of proper names from kanji to kana or romaji are sometimes inaccurate some manual effort was done.
 Some of the lines have an icon included taken from [Media Wiki](https://www.mediawiki.org/wiki/API:Main_page)
 ## base URL
-`https://tokyo-stations-api.herokuapp.com//api/v1/`
+`https://tokyo-stations-api.herokuapp.com/api/v1/`
 ## Usage
 ## Stations
 #### Get the full list of stations
