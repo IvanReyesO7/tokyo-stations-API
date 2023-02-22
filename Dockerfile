@@ -17,7 +17,12 @@ COPY Gemfile /tokyo-stations-api/Gemfile
 COPY Gemfile.lock /tokyo-stations-api/Gemfile.lock
 
 RUN gem install bundler
+RUN bundle update
 RUN bundle install
+
+RUN gem install nokogiri --platform=ruby
+RUN bundle config set force_ruby_platform true
+
 RUN yarn install
 
 COPY . /tokyo-stations-api
